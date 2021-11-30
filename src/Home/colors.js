@@ -1,0 +1,2 @@
+export const TabColors=["#34BE82","#FFE652","#FBF46D","#B4FE98","#77E4D4","#998CEB","#F9975D","#FBD148","#B2EA70","#FFAB4C","#FFF1AF","#FFC286"];
+export const clusterHeadColors=["#F3ED9E","#FF5403","#2FDD92","#88E0EF"]
