@@ -1,19 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Row,Col } from "react-bootstrap";
-import { CurrentuserProvider } from "../Context/currentUserContext";
-import { ClusterlessProvider } from "../Context/NoClusterDataContext";
+import { ClusterContext } from "../Context/clusterDataContext";
 import ClusterBox from "./ClusterBox";
-function ClusterIdea()
+function ClusterIdea(props)
 {
+    const [clusterData, setClusterData]=useContext(ClusterContext);
     return (<div>
         <Row className="m-0 p-0">
-            <Col lg={6} md={6} sm={6} xs={12}>
-            <ClusterlessProvider>    
-            <CurrentuserProvider>
-                <ClusterBox/>
-            </CurrentuserProvider>
-            </ClusterlessProvider>    
-            </Col>
+        {clusterData.map((item)=>
+            <Col key={item.id} lg={6} md={6} sm={6} xs={12}>
+                <ClusterBox Ideas={item.Ideas} />
+            </Col>)}
         </Row>
     </div>)
 }

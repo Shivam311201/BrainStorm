@@ -1,19 +1,64 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router";
 import "./Edithighlight_style.css";
-import { CurrentuserContext } from "../Context/currentUserContext";
-function EditHighlight()
-{
-    const[user,setUser]=useContext(CurrentuserContext);
-    console.log(user);
-    return (<div class="EditHighlight">
+function EditHighlight(props) {
+  const HighlightFormat = {
+    id: props.user[0]?.id,
+    checked:props.user[0]?.checked,
+    UserName: props.user[0]?.UserName,
+    ClusterName: props.user[0]?.ClusterName,
+    IdeaDescription: props.user[0]?.IdeaDescription,
+  };
+  const [form, setform] = useState(HighlightFormat);
+//   console.log(form);
+
+  const navigate=useNavigate();
+  function handleChange(e) {
+    setform({ ...form, [e.target.name]: e.target.value });
+    // console.log(form);
+  }
+  return (
+    <div class="EditHighlight">
       <div class="EditHighlight_Title"> Edit Highlight.....</div>
-        <div><input className="minor_input1" placeholder="Your Name*"/></div>
-        <div><input className="minor_input1" placeholder="Cluster Name"/></div>
-        <div><textarea className="major_input1" placeholder="Idea description*"/></div>
-        <div>
-            <button className="Save_Button">Save</button>
-        </div>
+      <div>
+        <input
+          className="minor_input1"
+          onChange={handleChange}
+          name="UserName"
+          value={form.UserName}
+          placeholder="Your Name*"
+        />
+      </div>
+      <div>
+        <input
+          className="minor_input1"
+          onChange={handleChange}
+          name="ClusterName"
+          value={form.ClusterName}
+          placeholder="Cluster Name"
+        />
+      </div>
+      <div>
+        <textarea
+          className="major_input1"
+          onChange={handleChange}
+          name="IdeaDescription"
+          value={form.IdeaDescription}
+          placeholder="Idea description*"
+        />
+      </div>
+      <div>
+        <button
+          className="Save_Button"
+          onClick={() => {
+            props.updateIdea(form);
+            navigate("/");
+          }}
+        >
+          Save
+        </button>
+      </div>
     </div>
-    ) 
+  );
 }
 export default EditHighlight;

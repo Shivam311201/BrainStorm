@@ -75,3 +75,28 @@
     text-align: right;
     margin-right: 10px;
 }
+.selection_msg{
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+    color: #fff;
+    margin-top: -20px;
+    margin-bottom: 15px;
+}
+.Done_Button{
+    height: 35px;
+    width: 70px;
+    border-radius: 4px;
+    margin-right: 40px;
+    border: #0B0D17;
+    font-family: 'Roboto Slab', serif;
+    font-size: 17px;
+    color: #0B0D17;
+    background-color: #fff;
+}
+.Done_Button:hover{
+    background-color: #ddeeff;
+    transition-duration: 0.3s;
+    transition-property: inherit;
+    transition-delay: 0.1s;
+    cursor: pointer;
+}
