@@ -10,12 +10,10 @@ function EditHighlight(props) {
     IdeaDescription: props.user[0]?.IdeaDescription,
   };
   const [form, setform] = useState(HighlightFormat);
-//   console.log(form);
 
   const navigate=useNavigate();
   function handleChange(e) {
     setform({ ...form, [e.target.name]: e.target.value });
-    // console.log(form);
   }
   return (
     <div class="EditHighlight">
@@ -27,15 +25,6 @@ function EditHighlight(props) {
           name="UserName"
           value={form.UserName}
           placeholder="Your Name*"
-        />
-      </div>
-      <div>
-        <input
-          className="minor_input1"
-          onChange={handleChange}
-          name="ClusterName"
-          value={form.ClusterName}
-          placeholder="Cluster Name"
         />
       </div>
       <div>

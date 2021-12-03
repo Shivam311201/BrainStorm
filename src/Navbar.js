@@ -14,7 +14,7 @@ function Navbar(props)
      <Link to="/addHighlight" style={{textDecoration:"none"}}>
      <div className="nav_options">Add Highlight</div>
      </Link>
-     {props.group&&<div className="nav_options" onClick={()=>{props.enableCheckBox(!props.checkbox)}}>Group Highlights</div>}
+     {props.group&&<div className="nav_options" onClick={()=>{props.enableCheckBox(true)}}>Group Highlights</div>}
      </div>
    </div>);
 }

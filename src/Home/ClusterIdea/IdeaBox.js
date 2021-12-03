@@ -1,13 +1,13 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faExchangeAlt,
   faTrash,
   faUserEdit,
 } from "@fortawesome/free-solid-svg-icons";
-import { TabColors } from "./colors";
-import "./Home_style.css";
-import { CurrentuserContext } from "../Context/currentUserContext";
+import { TabColors } from "../colors";
+import "../Home_style.css";
+import { CurrentuserContext } from "../../Context/currentUserContext";
 import {useNavigate} from "react-router-dom";
 
 function IdeaBox(props) {
@@ -20,17 +20,14 @@ function IdeaBox(props) {
     UserName:props.data?.UserName,
     ClusterName:props.data?.ClusterName,
     IdeaDescription:props.data?.IdeaDescription
-};
+  };
   async function updateUser()
   {
     await setUser([HighlightFormat]);
     navigate("/EditHighlight");
   }
   const idx = Math.floor(Math.random() * TabColors.length);
-  // function checkbox(e)
-  // {
-  //   console.log(e.target.checked);
-  // }
+
   return (
     <div className="ideaBox_style" style={{ backgroundColor: TabColors[idx] }}>
       {props.checkbox && (
@@ -45,7 +42,9 @@ function IdeaBox(props) {
           <FontAwesomeIcon
             size="lg"
             className="delete"
-            onClick={()=>props.RemoveIdea(props.data.id)}
+            onClick={()=>{
+              props.RemoveIdea(props.data.id,props.data.ClusterName)
+            }}
             icon={faTrash}
           />
         <FontAwesomeIcon size="lg" className="move" icon={faExchangeAlt} />
