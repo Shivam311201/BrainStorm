@@ -5,8 +5,12 @@ import Logo from "./Images/logo.png";
 function Navbar(props)
 {
   return (<div className="nav_row">
+     <Link to="/" style={{textDecoration:"none"}}> 
      <img className="logo_img" src={Logo}/>
+     </Link>
+     <Link to="/" style={{textDecoration:"none"}}>
      <div className="Logo_title">Oxytocin Task</div>
+     </Link>
      <div className="pages_option">
      <Link to="/" style={{textDecoration:"none"}}>
      <div className="nav_options">Home</div>

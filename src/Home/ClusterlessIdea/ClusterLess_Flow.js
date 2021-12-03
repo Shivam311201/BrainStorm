@@ -23,6 +23,7 @@ function ClusterLess_Flow(props)
   
     function groupData()
     {
+      if(clusterForm.ClusterTitle!=""){
       const newData = Data.filter((item) => item.checked === false);
       const dataApp = Data.filter((item) => item.checked === true);
       var fnd=0;
@@ -40,13 +41,14 @@ function ClusterLess_Flow(props)
         }
       });
       
-      if(fnd===0&&clusterForm.ClusterTitle!="")
+      if(fnd===0)
       {
         setClusterData([...clusterData,clusterForm]); 
       }
   
       setData(newData);
-      props.enableCheckBox(false);
+    }
+    props.enableCheckBox(false);
       setClusterName("");  
     }
   
@@ -58,6 +60,7 @@ function ClusterLess_Flow(props)
     <div className="group_input" >
     <input type="text" className="clusterName" name="ClusterTitle" onChange={handleChange} placeholder="Cluster Name"></input>
     <br/>
+    <button onClick={()=>props.enableCheckBox(false)} className="Cancel_Button">Cancel</button>
     <button onClick={groupData} className="Done_Button">Done</button>
     </div>
     </div>}

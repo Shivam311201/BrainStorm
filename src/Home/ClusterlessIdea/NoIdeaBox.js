@@ -9,10 +9,12 @@ import { TabColors } from "../colors";
 import "../Home_style.css";
 import { CurrentuserContext } from "../../Context/currentUserContext";
 import {useNavigate} from "react-router-dom";
+import { ClusterCheckBoxContext } from "../../Context/clusterCheckBoxContext";
 
 function IdeaBox(props) {
     
   const [user,setUser]=useContext(CurrentuserContext);
+  const[ClusterCheckBox, setClusterCheckBox]=useContext(ClusterCheckBoxContext);
   const navigate=useNavigate();
   const HighlightFormat={
     id:props.data?.id,
@@ -27,10 +29,6 @@ function IdeaBox(props) {
     navigate("/EditHighlight");
   }
   const idx = Math.floor(Math.random() * TabColors.length);
-  // function checkbox(e)
-  // {
-  //   console.log(e.target.checked);
-  // }
   return (
     <div className="ideaBox_style" style={{ backgroundColor: TabColors[idx] }}>
       {props.checkbox && (
@@ -45,10 +43,15 @@ function IdeaBox(props) {
           <FontAwesomeIcon
             size="lg"
             className="delete"
-            onClick={()=>props.RemoveIdea(props.data.id)}
+            onClick={()=>{
+              props.RemoveIdea(props.data.id)
+              console.log(ClusterCheckBox);
+              }}
             icon={faTrash}
           />
-        <FontAwesomeIcon size="lg" className="move" icon={faExchangeAlt} />
+        <FontAwesomeIcon size="lg" className="move" onClick={()=>{
+          setClusterCheckBox(true);
+          }} icon={faExchangeAlt} />
       </div>
     </div>
   );

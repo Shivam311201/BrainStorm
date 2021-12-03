@@ -8,11 +8,13 @@ import EditHighlightFlow from "./EditHighlight/EditHighlightFlow";
 import { ClusterlessProvider } from "./Context/NoClusterDataContext";
 import { CurrentuserProvider } from "./Context/currentUserContext";
 import { ClusterProvider } from "./Context/clusterDataContext";
+import { ClusterCheckBoxProvider } from "./Context/clusterCheckBoxContext";
 function App() {
   return (
     <ClusterlessProvider>
     <CurrentuserProvider>
     <ClusterProvider>
+    <ClusterCheckBoxProvider>
     <Router>
     <Routes>
     <Route exact path="/" element ={<Home_flow/>}/>
@@ -20,6 +22,7 @@ function App() {
     <Route exact path="/EditHighlight" element ={<EditHighlightFlow/>}/>
     </Routes>
     </Router>
+    </ClusterCheckBoxProvider>
     </ClusterProvider>
     </CurrentuserProvider>
     </ClusterlessProvider>

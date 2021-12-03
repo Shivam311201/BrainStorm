@@ -1,10 +1,13 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import { Row,Col } from "react-bootstrap";
+import { ClusterCheckBoxContext } from "../../Context/clusterCheckBoxContext";
 import { ClusterContext } from "../../Context/clusterDataContext";
 import ClusterBox from "./ClusterBox";
 function ClusterIdea()
 {
     const[clusterData, setClusterData]=useContext(ClusterContext);
+    const[ClusterCheckBox, setClusterCheckBox]=useContext(ClusterCheckBoxContext);
+
     const ClusterFormat={
         id:0,
         ClusterTitle:"",
@@ -28,6 +31,7 @@ function ClusterIdea()
     }
   
     return (<div>
+      {ClusterCheckBox&&<div className="selection_msg">**Please select the cluster where idea to be moved**</div>}
         <Row className="m-0 p-0">
         {clusterData.map((item)=>
             <Col key={item.id} lg={6} md={6} sm={6} xs={12}>

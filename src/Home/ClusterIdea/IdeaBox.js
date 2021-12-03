@@ -9,10 +9,13 @@ import { TabColors } from "../colors";
 import "../Home_style.css";
 import { CurrentuserContext } from "../../Context/currentUserContext";
 import {useNavigate} from "react-router-dom";
+import { ClusterCheckBoxContext } from "../../Context/clusterCheckBoxContext";
 
 function IdeaBox(props) {
     
   const [user,setUser]=useContext(CurrentuserContext);
+  const[ClusterCheckBox, setClusterCheckBox]=useContext(ClusterCheckBoxContext);
+
   const navigate=useNavigate();
   const HighlightFormat={
     id:props.data?.id,
@@ -47,7 +50,9 @@ function IdeaBox(props) {
             }}
             icon={faTrash}
           />
-        <FontAwesomeIcon size="lg" className="move" icon={faExchangeAlt} />
+          <FontAwesomeIcon size="lg" className="move" 
+          onClick={()=>setClusterCheckBox(true)} 
+          icon={faExchangeAlt} />
       </div>
     </div>
   );
