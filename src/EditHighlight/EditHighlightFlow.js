@@ -1,4 +1,4 @@
-import React,{useContext} from "react";
+import React,{useContext,useState,useEffect} from "react";
 import Navbar from "../Navbar";
 import EditHighlight from "./EditHighlight";
 import { CurrentuserContext } from "../Context/currentUserContext";
@@ -10,6 +10,14 @@ function EditHighlightFlow()
   const[user,setUser]=useContext(CurrentuserContext);
   const[Data,setData]=useContext(ClusterlessContext);
   const[clusterData,setClusterData]=useContext(ClusterContext);
+
+  const[winHeight,setHeight]=useState(window.innerHeight);
+    useEffect(() => {
+      function handleResize() {
+        setHeight(window.innerHeight);
+    }
+    window.addEventListener('resize', handleResize)
+    });
 
   const navigate=useNavigate();
   
@@ -56,7 +64,7 @@ function EditHighlightFlow()
   }
     return (<div>
         <Navbar group={false}/>
-        <div className="outerEdit">
+        <div className="outerEdit" style={{height:winHeight}}>
           <EditHighlight user={user} setUser={setUser} updateIdea={updateIdea}/>
         </div>
     </div>)
