@@ -1,9 +1,19 @@
 import React, { useState,useContext } from "react";
+import { ClusterContext } from "../Context/clusterDataContext";
+import { ClusterlessContext } from "../Context/NoClusterDataContext";
 import "./highlight_style.css";
+
 function AddHighlight(props)
 {
+    const [Data,setData]=useContext(ClusterlessContext);
+    const [clusterData, setClusterData]=useContext(ClusterContext);
+    var len=0;
+    clusterData.map((item)=>{
+        len+=(item.Ideas.length);
+    });
+
     const HighlightFormat={
-        id:props.Data.length+1,
+        id:len+props.Data.length+1,
         checked:false,
         UserName:"",
         ClusterName:"",

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router";
 import "./Edithighlight_style.css";
 function EditHighlight(props) {
   const HighlightFormat = {
@@ -11,10 +10,10 @@ function EditHighlight(props) {
   };
   const [form, setform] = useState(HighlightFormat);
 
-  const navigate=useNavigate();
   function handleChange(e) {
     setform({ ...form, [e.target.name]: e.target.value });
   }
+
   return (
     <div class="EditHighlight">
       <div class="EditHighlight_Title"> Edit Highlight.....</div>
@@ -41,7 +40,6 @@ function EditHighlight(props) {
           className="Save_Button"
           onClick={() => {
             props.updateIdea(form);
-            navigate("/");
           }}
         >
           Save

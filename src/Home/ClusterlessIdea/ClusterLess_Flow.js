@@ -2,11 +2,9 @@ import React, {useState,useContext} from "react";
 import NoclusterIdea from "./NoClusterIdea";
 import { ClusterContext } from "../../Context/clusterDataContext";
 import { ClusterlessContext } from "../../Context/NoClusterDataContext";
-import { MoveIdeaContext } from "../../Context/MoveIdeaContext";
 function ClusterLess_Flow(props)
 {  
     const[clusterData, setClusterData]=useContext(ClusterContext);
-    const[MIdea, setMIdea]=useContext(MoveIdeaContext);
     const ClusterFormat={
       id:clusterData.length+1,
       ClusterTitle:"",
@@ -14,7 +12,6 @@ function ClusterLess_Flow(props)
     };
   
     const[Data,setData]=useContext(ClusterlessContext);
-    const[clusterName,setClusterName]=useState("");
     const[clusterForm,setClusterForm]=useState(ClusterFormat);
   
     function handleChange(e)
@@ -34,13 +31,10 @@ function ClusterLess_Flow(props)
     function groupData()
     {
       if(clusterForm.ClusterTitle!=""){
+
       const newData = Data.filter((item) => item.checked === false);
       const dataApp = Data.filter((item) => item.checked === true);
 
-      if(dataApp.length===0)
-      {
-        alert("No ideas selected !!\nForming an empty cluster.");
-      }
       newData.sort(compare);  
       dataApp.sort(compare);  
       var fnd=0;
@@ -51,12 +45,20 @@ function ClusterLess_Flow(props)
       clusterForm.Ideas=dataApp;
       
       clusterData.map((item)=>{
-        if(item.ClusterTitle==clusterName)
+        if(item.ClusterTitle===clusterForm.ClusterTitle)
         {
-          dataApp.map((newidea)=>item.Ideas.push(newidea));
           fnd=1;
+          if(dataApp.length==0){
+            alert("No ideas selected and Cluster already exists !!");  
+          }
+          dataApp.map((newidea)=>item.Ideas.push(newidea));
         }
       });
+      
+      if(fnd===0&&dataApp.length===0)
+      {
+        alert("No ideas selected !!\nForming an empty cluster.");
+      }
       
       if(fnd===0)
       {
@@ -67,12 +69,10 @@ function ClusterLess_Flow(props)
   
       setData(newData);
       props.enableCheckBox(false);
-      setClusterName("");  
     }
     else alert("Invalid Name !!\nPlease enter again.");
-    }
-  
-  
+    setClusterForm({...clusterForm,ClusterTitle:""});
+  }
    return (<div>
     {props.checkbox&&<div className="selection_msg">**Please select the ideas to be grouped**</div>}
     <NoclusterIdea checkbox={props.checkbox}/>
@@ -81,7 +81,10 @@ function ClusterLess_Flow(props)
     <input type="text" className="clusterName" name="ClusterTitle" onChange={handleChange} placeholder="Cluster Name"></input>
     <br/>
     <button onClick={()=>props.enableCheckBox(false)} className="Cancel_Button">Cancel</button>
-    <button onClick={groupData} className="Done_Button">Done</button>
+    <button onClick={()=>{
+      ClusterFormat.ClusterTitle="";
+      groupData();
+      }} className="Done_Button">Done</button>
     </div>
     </div>}
    </div>);

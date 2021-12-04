@@ -36,6 +36,7 @@ function ClusterBox(props)
             const newClus = clusterData.filter((item)=>item.ClusterTitle!=props.ClusterTitle);
             MIdea[0].ClusterName=props.ClusterTitle;
             ClusterFormat.Ideas.push(MIdea[0]);
+            ClusterFormat.Ideas.sort(compare);
             const finalClus=[...newClus,ClusterFormat];
             finalClus.sort(compare);            
             setClusterData(finalClus);
@@ -46,9 +47,11 @@ function ClusterBox(props)
         else {
             const newClus = clusterData.filter((item)=>item.ClusterTitle===AlreadyClus);
             const newArr = newClus[0].Ideas.filter((item)=>item.id!==MIdea[0].id);
+            newArr.sort(compare);
             newClus[0].Ideas=newArr;
             MIdea[0].ClusterName=props.ClusterTitle;
             ClusterFormat.Ideas.push(MIdea[0]);
+            ClusterFormat.Ideas.sort(compare);
             const remClus = clusterData.filter((item)=>((item.ClusterTitle!==props.ClusterTitle)&&(item.ClusterTitle!==AlreadyClus)));
             const finalClus=[...remClus,ClusterFormat,newClus[0]];
             finalClus.sort(compare);
