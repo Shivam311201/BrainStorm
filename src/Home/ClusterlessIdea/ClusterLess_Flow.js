@@ -2,10 +2,11 @@ import React, {useState,useContext} from "react";
 import NoclusterIdea from "./NoClusterIdea";
 import { ClusterContext } from "../../Context/clusterDataContext";
 import { ClusterlessContext } from "../../Context/NoClusterDataContext";
+import { MoveIdeaContext } from "../../Context/MoveIdeaContext";
 function ClusterLess_Flow(props)
 {  
     const[clusterData, setClusterData]=useContext(ClusterContext);
-
+    const[MIdea, setMIdea]=useContext(MoveIdeaContext);
     const ClusterFormat={
       id:clusterData.length+1,
       ClusterTitle:"",
@@ -20,12 +21,28 @@ function ClusterLess_Flow(props)
     {  
         setClusterForm({...clusterForm,[e.target.name]:e.target.value});
     }
-  
+    
+    function compare(a,b)
+    {
+       if(a.id<b.id)
+       return -1;
+       if(a.id>b.id)
+       return 1;
+     return 0;  
+    }
+
     function groupData()
     {
       if(clusterForm.ClusterTitle!=""){
       const newData = Data.filter((item) => item.checked === false);
       const dataApp = Data.filter((item) => item.checked === true);
+
+      if(dataApp.length===0)
+      {
+        alert("No ideas selected !!\nForming an empty cluster.");
+      }
+      newData.sort(compare);  
+      dataApp.sort(compare);  
       var fnd=0;
   
       dataApp.map((newidea)=>{
@@ -43,13 +60,16 @@ function ClusterLess_Flow(props)
       
       if(fnd===0)
       {
-        setClusterData([...clusterData,clusterForm]); 
+        const finalClus=[...clusterData,clusterForm];
+        finalClus.sort(compare);
+        setClusterData(finalClus); 
       }
   
       setData(newData);
-    }
-    props.enableCheckBox(false);
+      props.enableCheckBox(false);
       setClusterName("");  
+    }
+    else alert("Invalid Name !!\nPlease enter again.");
     }
   
   

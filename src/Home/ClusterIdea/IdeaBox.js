@@ -10,11 +10,15 @@ import "../Home_style.css";
 import { CurrentuserContext } from "../../Context/currentUserContext";
 import {useNavigate} from "react-router-dom";
 import { ClusterCheckBoxContext } from "../../Context/clusterCheckBoxContext";
+import { MoveIdeaContext } from "../../Context/MoveIdeaContext";
+import { ClusterContext } from "../../Context/clusterDataContext";
 
 function IdeaBox(props) {
     
   const [user,setUser]=useContext(CurrentuserContext);
-  const[ClusterCheckBox, setClusterCheckBox]=useContext(ClusterCheckBoxContext);
+  const [clusterData, setClusterData]=useContext(ClusterContext);
+  const [ClusterCheckBox, setClusterCheckBox]=useContext(ClusterCheckBoxContext);
+  const [MIdea, setMIdea]=useContext(MoveIdeaContext);
 
   const navigate=useNavigate();
   const HighlightFormat={
@@ -51,7 +55,13 @@ function IdeaBox(props) {
             icon={faTrash}
           />
           <FontAwesomeIcon size="lg" className="move" 
-          onClick={()=>setClusterCheckBox(true)} 
+          onClick={()=>{
+            if(clusterData.length>1){
+            setClusterCheckBox(true);
+            setMIdea([HighlightFormat]);
+            }
+            else alert("No Cluster available to move !!\nPlease create new clusters to move the idea.");
+            }} 
           icon={faExchangeAlt} />
       </div>
     </div>

@@ -9,6 +9,15 @@ function EditHighlightFlow()
   const[user,setUser]=useContext(CurrentuserContext);
   const[Data,setData]=useContext(ClusterlessContext);
   const[clusterData,setClusterData]=useContext(ClusterContext);
+  
+  function compare(a,b)
+  {
+     if(a.id<b.id)
+     return -1;
+     if(a.id>b.id)
+     return 1;
+   return 0;  
+  }
 
   function updateIdea(form) {
 

@@ -2,13 +2,24 @@ import React, { useContext, useEffect} from "react";
 import { Row,Col } from "react-bootstrap";
 import NoIdeaBox from "./NoIdeaBox";
 import { ClusterlessContext } from "../../Context/NoClusterDataContext";
+import { MoveIdeaContext } from "../../Context/MoveIdeaContext";
 
 function NoclusterIdea(props)
 {
    const[Data,setData]=useContext(ClusterlessContext);
    
+   function compare(a,b)
+    {
+       if(a.id<b.id)
+       return -1;
+       if(a.id>b.id)
+       return 1;
+     return 0;  
+    }
+
    function RemoveIdea(Myid) {
      const newData = Data.filter((item) => item.id !== Myid);
+     newData.sort(compare);
      setData(newData);
    }
 
@@ -20,7 +31,6 @@ function NoclusterIdea(props)
          item.checked=checked;  
        });
    }
-   
    return (
    <div className="NoClusterideas">
       <Row className="m-0 p-0">

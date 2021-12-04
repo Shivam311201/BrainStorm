@@ -13,6 +13,15 @@ function ClusterIdea()
         ClusterTitle:"",
         Ideas:[]
       };
+    
+    function compare(a,b)
+    {
+       if(a.id<b.id)
+       return -1;
+       if(a.id>b.id)
+       return 1;
+     return 0;  
+    }
 
     function RemoveIdea(Myid,MyClusterName) {
         
@@ -24,9 +33,11 @@ function ClusterIdea()
             }
         });
         const newCluster=clusterData.filter((item)=>item.ClusterTitle!==MyClusterName);
-        const newArr=ClusterFormat.Ideas.filter((item)=>item.id!==Myid); 
+        const newArr=ClusterFormat.Ideas.filter((item)=>item.id!==Myid);
+        newArr.sort(compare); 
         ClusterFormat.Ideas=newArr; 
         newCluster.push(ClusterFormat); 
+        newCluster.sort(compare);
         setClusterData(newCluster);  
     }
   
@@ -35,7 +46,7 @@ function ClusterIdea()
         <Row className="m-0 p-0">
         {clusterData.map((item)=>
             <Col key={item.id} lg={6} md={6} sm={6} xs={12}>
-                <ClusterBox Ideas={item.Ideas} ClusterTitle={item.ClusterTitle} RemoveIdea={RemoveIdea}/>
+                <ClusterBox id={item.id} Ideas={item.Ideas} ClusterTitle={item.ClusterTitle} RemoveIdea={RemoveIdea}/>
             </Col>)}
         </Row>
     </div>)

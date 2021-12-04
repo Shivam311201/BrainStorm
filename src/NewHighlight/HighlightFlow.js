@@ -8,9 +8,19 @@ function HighlightFlow(props)
 {
     const[Data,setData]=useContext(ClusterlessContext);
     const navigate=useNavigate();
+    function compare(a,b)
+    {
+       if(a.id<b.id)
+       return -1;
+       if(a.id>b.id)
+       return 1;
+     return 0;  
+    }
     function AddIdea(form)
     {
-        setData([...Data,form]);
+        const newI=[...Data,form];
+        newI.sort(compare);
+        setData(newI);
         navigate("/");
     }
     return (<div>

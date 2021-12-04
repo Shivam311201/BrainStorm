@@ -9,12 +9,13 @@ import { ClusterlessProvider } from "./Context/NoClusterDataContext";
 import { CurrentuserProvider } from "./Context/currentUserContext";
 import { ClusterProvider } from "./Context/clusterDataContext";
 import { ClusterCheckBoxProvider } from "./Context/clusterCheckBoxContext";
+import { MoveIdeaProvider } from "./Context/MoveIdeaContext";
 function App() {
-  return (
-    <ClusterlessProvider>
+  return (<ClusterlessProvider>
     <CurrentuserProvider>
     <ClusterProvider>
     <ClusterCheckBoxProvider>
+    <MoveIdeaProvider>
     <Router>
     <Routes>
     <Route exact path="/" element ={<Home_flow/>}/>
@@ -22,11 +23,11 @@ function App() {
     <Route exact path="/EditHighlight" element ={<EditHighlightFlow/>}/>
     </Routes>
     </Router>
+    </MoveIdeaProvider>
     </ClusterCheckBoxProvider>
     </ClusterProvider>
     </CurrentuserProvider>
-    </ClusterlessProvider>
-    );
+    </ClusterlessProvider>);
 }
 
 export default App;
