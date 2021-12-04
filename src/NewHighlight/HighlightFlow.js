@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext,useEffect,useState} from "react";
 import Navbar from "../Navbar";
 import AddHighlight from "./AddHighlight";
 import { useNavigate } from "react-router";
@@ -14,6 +14,13 @@ function HighlightFlow(props)
         ClusterTitle:"",
         Ideas:[]
     };
+    const[winHeight,setHeight]=useState(window.innerHeight);
+    useEffect(() => {
+      function handleResize() {
+        setHeight(window.innerHeight);
+    }
+    window.addEventListener('resize', handleResize)
+    });
     const navigate=useNavigate();
     function compare(a,b)
     {
@@ -62,7 +69,7 @@ function HighlightFlow(props)
     }
     return (<div>
         <Navbar group={false}/>
-        <div style={{backgroundColor:"#0B0D17",paddingTop:"20px",paddingBottom:"20px"}}>
+        <div style={{backgroundColor:"#0B0D17",paddingTop:"30px",paddingBottom:"20px",height:winHeight}}>
         <AddHighlight Data={Data} AddIdea={AddIdea}/>
         </div>
     </div>)

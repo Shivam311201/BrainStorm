@@ -14,7 +14,7 @@ function EditHighlight(props) {
     setform({ ...form, [e.target.name]: e.target.value });
   }
 
-  return (
+  return (<div style={{display:"flex",justifyContent:"space-around"}}>
     <div class="EditHighlight">
       <div class="EditHighlight_Title"> Edit Highlight.....</div>
       <div>
@@ -35,7 +35,7 @@ function EditHighlight(props) {
           placeholder="Idea description*"
         />
       </div>
-      <div>
+      <div style={{display:"flex",flexDirection:"row-reverse"}}>
         <button
           className="Save_Button"
           onClick={() => {
@@ -46,6 +46,6 @@ function EditHighlight(props) {
         </button>
       </div>
     </div>
-  );
+  </div>);
 }
 export default EditHighlight;

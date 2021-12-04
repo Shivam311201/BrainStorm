@@ -2,7 +2,7 @@ import React, { useContext, useEffect} from "react";
 import { Row,Col } from "react-bootstrap";
 import NoIdeaBox from "./NoIdeaBox";
 import { ClusterlessContext } from "../../Context/NoClusterDataContext";
-import { MoveIdeaContext } from "../../Context/MoveIdeaContext";
+import "../Home_style.css";
 
 function NoclusterIdea(props)
 {
@@ -35,7 +35,7 @@ function NoclusterIdea(props)
    <div className="NoClusterideas">
       <Row className="m-0 p-0">
          {Data.map((item)=>(
-         <Col key={item.id} lg={3} md={3} sm={4} xs={12}>
+         <Col key={item.id} lg={3} md={4} sm={4} xs={12}>
             <NoIdeaBox checkbox={props.checkbox} setCheckbox={setCheckbox} setData={setData} data={item} RemoveIdea={RemoveIdea}/>
          </Col>
          ))} 

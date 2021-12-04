@@ -32,7 +32,7 @@ function IdeaBox(props) {
   }
   const idx = Math.floor(Math.random() * TabColors.length);
   return (
-    <div className="ideaBox_style" style={{ backgroundColor: TabColors[idx] }}>
+    <div className="ideaBox_style IdeaBoxOuter" style={{ backgroundColor: TabColors[idx] }}>
       {props.checkbox && (
         <div className="checkboxStyle">
           <input

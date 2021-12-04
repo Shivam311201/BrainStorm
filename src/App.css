@@ -3,6 +3,7 @@
     flex-direction: row;
     background-color: #ddeeff;     /* e8f1fc */
     margin-top: -10px !important;
+    justify-content: space-between;
     padding-top: 10px;
     padding-bottom: 3px;
     width: 100%;
@@ -26,6 +27,19 @@
     transition-duration: 0.3s;
     cursor: pointer;
 }
+.nav_options1{
+    margin-top: 13px;
+    font-family: 'Roboto Slab', serif;
+    font-size: 20px; 
+    font-weight: 300;
+    margin-left: 20px; 
+    color: #0B0D17;
+}
+.nav_options1:hover{
+    color:dimgray;
+    transition-duration: 0.3s;
+    cursor: pointer;
+}
 .Logo_title{
     margin-top: 7px;
     font-family: 'Roboto Slab', serif;
@@ -37,5 +51,21 @@
 .pages_option{
     display: flex;
     flex-direction: row;
-    margin-left: 460px;
+    margin-right: 20px;
+}
+.pages_option1{
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: 30px;
+    margin-top: 12px;
+}
+@media screen and (max-width:814px){
+    .logo_img{
+        margin-left: 10px !important;
+    }
+}
+@media screen and (max-width:750px){
+    .logo_img{
+        margin-left: 8px !important;
+    }
 }

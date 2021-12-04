@@ -1,8 +1,9 @@
 .EditHighlight{
     text-align: center;
     width:500px;
-    margin-left: 400px;
     border: #fff solid;
+    padding-left: 30px;
+    padding-right: 30px;
     background-color: #0B0D17;
 }
 .EditHighlight_Title{
@@ -13,7 +14,7 @@
     padding-top: 15px;
 }
 .minor_input1{
-    width:450px;
+    width:100%;
     margin-top: 10px;
     border-radius: 4px;
     font: 18px;
@@ -23,7 +24,7 @@
     border: #0B0D17 solid 0.5px;
 }
 .major_input1{
-    width: 450px;
+    width: 100%;
     border-radius: 4px;
     padding-left: 10px;
     padding-top: 3px;
@@ -31,7 +32,6 @@
     margin-top: 20px;
 }
 .Save_Button{
-    margin-left: 370px;
     height: 35px;
     width: 70px;
     margin-top: 4px;

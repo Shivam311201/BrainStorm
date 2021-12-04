@@ -45,7 +45,7 @@ function ClusterIdea()
       {ClusterCheckBox&&<div className="selection_msg">**Please select the cluster where idea to be moved**</div>}
         <Row className="m-0 p-0">
         {clusterData.map((item)=>
-            <Col key={item.id} lg={6} md={6} sm={6} xs={12}>
+            <Col key={item.id} lg={6} md={12} sm={12} xs={12}>
                 <ClusterBox id={item.id} Ideas={item.Ideas} ClusterTitle={item.ClusterTitle} RemoveIdea={RemoveIdea}/>
             </Col>)}
         </Row>

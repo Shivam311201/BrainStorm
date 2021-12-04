@@ -1,7 +1,8 @@
 .addHighlight{
     text-align: center;
     width:500px;
-    margin-left: 400px;
+    padding-left: 30px;
+    padding-right: 30px;
     border: #fff solid;
 }
 .addHighlight_Title{
@@ -12,7 +13,7 @@
     padding-top: 15px;
 }
 .minor_input{
-    width:450px;
+    width:100%;
     margin-top: 10px;
     border-radius: 4px;
     font: 18px;
@@ -22,7 +23,7 @@
     border: #0B0D17 solid 0.5px;
 }
 .major_input{
-    width: 450px;
+    width: 100%;
     border-radius: 4px;
     padding-left: 10px;
     padding-top: 3px;
@@ -30,7 +31,6 @@
     margin-top: 20px;
 }
 .Add_Button{
-    margin-left: 370px;
     height: 35px;
     width: 70px;
     margin-top: 4px;
@@ -48,4 +48,40 @@
     transition-property: inherit;
     transition-delay: 0.1s;
     cursor: pointer;
+}
+@media screen and (max-width:580px){
+    .addHighlight{
+      width: 400px;   
+    }
+    .addHighlight_Title{
+      font-size: 39px; 
+    }
+}
+@media screen and (max-width:457px){
+    .addHighlight{
+      width: 350px;   
+      padding-left: 25px;
+      padding-right: 25px;
+      margin-top: 10px;
+    }
+    .addHighlight_Title{
+      font-size: 33px; 
+    }
+    .major_input{
+        height: 230px;
+    }
+}
+@media screen and (max-width:400px){
+    .addHighlight{
+      width: 300px;   
+      margin-top: 20px;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    .addHighlight_Title{
+      font-size: 31px; 
+    }
+    .major_input{
+        height: 220px;
+    }
 }

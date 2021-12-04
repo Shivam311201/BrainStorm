@@ -59,7 +59,7 @@ function ClusterBox(props)
         }
 
     }
-    return (<div className="cluster">
+    return (<div className="cluster clusterBoxOuter">
        <div className="clusterHeading" style={{backgroundColor:clusterHeadColors[idx]}}>{props.ClusterTitle}
        {ClusterCheckBox&&(MIdea[0].ClusterName!=props.ClusterTitle)&&<input className="moveCheckbox" 
        onChange={()=>{
