@@ -60,13 +60,20 @@ function ClusterBox(props)
 
     }
     return (<div className="cluster clusterBoxOuter">
-       <div className="clusterHeading" style={{backgroundColor:clusterHeadColors[idx]}}>{props.ClusterTitle}
+       <div className="clusterHeading" style={{backgroundColor:clusterHeadColors[idx]}}>
+       <Row className="p-0 m-0">
+       <Col className="p-0 m-0" lg={11} md={11} sm={11} xs={11}>
+       {props.ClusterTitle}
+       </Col>
+       <Col className="p-0 m-0" lg={1} md={1} sm={1} xs={1}>
        {ClusterCheckBox&&(MIdea[0].ClusterName!=props.ClusterTitle)&&<input className="moveCheckbox" 
        onChange={()=>{
         setClusterCheckBox(false);
         Move();
         }} 
        type="checkbox"></input>}
+       </Col>
+       </Row>
        </div>
         <Row className="m-0 p-0">
           {props.Ideas.map((item)=>

@@ -40,7 +40,7 @@ function Navbar(props)
      </div>}
      {winWidth<=730&&<FontAwesomeIcon className="pages_option1" size="2x" icon={faBars} onClick={()=>setNav(!Nav)} />}
    </div>
-   {winWidth<=730&&Nav&&<div style={{backgroundColor:"white",paddingBottom:"15px",paddingTop:"4px"}}>
+   {winWidth<=730&&<div className={Nav===true?"Nav_display":"Nav_Notdisplay"} style={{}}>
    <Link to="/" style={{textDecoration:"none"}}>
      <div className="nav_options1">Home</div>
      </Link>
