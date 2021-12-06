@@ -1,9 +1,9 @@
 import React, { useState,useContext } from "react";
 import { ClusterContext } from "../Context/clusterDataContext";
 import { ClusterlessContext } from "../Context/NoClusterDataContext";
-import "./highlight_style.css";
+import "./Idea_style.css";
 
-function AddHighlight(props)
+function AddIdea(props)
 {
     const [Data,setData]=useContext(ClusterlessContext);
     const [clusterData, setClusterData]=useContext(ClusterContext);
@@ -12,29 +12,29 @@ function AddHighlight(props)
         len+=(item.Ideas.length);
     });
 
-    const HighlightFormat={
+    const IdeaFormat={
         id:len+props.Data.length+1,
         checked:false,
         UserName:"",
         ClusterName:"",
         IdeaDescription:""
     };
-    const[form,setform]=useState(HighlightFormat);
+    const[form,setform]=useState(IdeaFormat);
     function handleChange(e)
     {  
         console.log(form.id);
         setform({...form,[e.target.name]:e.target.value});
     }
     return (<div style={{display:"flex",justifyContent:"space-around"}}>
-    <div class="addHighlight">
-      <div class="addHighlight_Title"> Create a Highlight</div>
+    <div class="addIdea">
+      <div class="addIdea_Title">Add an Idea.....</div>
         <div><input className="minor_input" name="UserName" onChange={handleChange} placeholder="Your Name*"/></div>
         <div><input className="minor_input" name="ClusterName" onChange={handleChange} placeholder="Cluster Name"/></div>
         <div><textarea className="major_input" name="IdeaDescription" onChange={handleChange} placeholder="Idea description*"/></div>
         <div style={{display:"flex",flexDirection:"row-reverse"}}>
-            <button className="Add_Button" onClick={()=>props.AddIdea(form)}>Add</button>
+            <button className="Add_Button" onClick={()=>props.Idea(form)}>Add</button>
         </div>
     </div>
     </div>) 
 }
-export default AddHighlight;
+export default AddIdea;

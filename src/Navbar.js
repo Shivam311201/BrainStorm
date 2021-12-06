@@ -22,21 +22,21 @@ function Navbar(props)
      <img className="logo_img" src={Logo}/>
      </Link>
      <Link to="/" style={{textDecoration:"none"}}>
-     <div className="Logo_title">Oxytocin Task</div>
+     <div className="Logo_title">BrainStorm</div>
      </Link>
      </div>
      {winWidth>730&&<div className="pages_option">
      <Link to="/" style={{textDecoration:"none"}}>
      <div className="nav_options">Home</div>
      </Link>
-     <Link to="/addHighlight" style={{textDecoration:"none"}}>
-     <div className="nav_options">Add Highlight</div>
+     <Link to="/addIdea" style={{textDecoration:"none"}}>
+     <div className="nav_options">Add Ideas</div>
      </Link>
      {props.group&&<div className="nav_options" onClick={()=>{
        if(Data.length>0)
        props.enableCheckBox(true)
        else alert("No ideas available for clustering !!");
-       }}>Group Highlights</div>}
+       }}>Form Clusters</div>}
      </div>}
      {winWidth<=730&&<FontAwesomeIcon className="pages_option1" size="2x" icon={faBars} onClick={()=>setNav(!Nav)} />}
    </div>
@@ -44,14 +44,14 @@ function Navbar(props)
    <Link to="/" style={{textDecoration:"none"}}>
      <div className="nav_options1">Home</div>
      </Link>
-     <Link to="/addHighlight" style={{textDecoration:"none"}}>
-     <div className="nav_options1">Add Highlight</div>
+     <Link to="/addIdea" style={{textDecoration:"none"}}>
+     <div className="nav_options1">Add Ideas</div>
      </Link>
      {props.group&&<div className="nav_options1" onClick={()=>{
        if(Data.length>0)
        props.enableCheckBox(true)
        else alert("No ideas available for clustering !!");
-       }}>Group Highlights</div>}
+       }}>Form Clusters</div>}
    </div>}
    </div>);
 }

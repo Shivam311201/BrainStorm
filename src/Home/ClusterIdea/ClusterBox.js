@@ -62,7 +62,7 @@ function ClusterBox(props)
     return (<div className="cluster clusterBoxOuter">
        <div className="clusterHeading" style={{backgroundColor:clusterHeadColors[idx]}}>
        <Row className="p-0 m-0">
-       <Col className="p-0 m-0" lg={11} md={11} sm={11} xs={11}>
+       <Col className="p-0 m-0" lg={11} md={11} sm={11} xs={11} style={{textAlign:"center"}}>
        {props.ClusterTitle}
        </Col>
        <Col className="p-0 m-0" lg={1} md={1} sm={1} xs={1}>

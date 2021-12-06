@@ -21,7 +21,7 @@ function IdeaBox(props) {
   const [MIdea, setMIdea]=useContext(MoveIdeaContext);
 
   const navigate=useNavigate();
-  const HighlightFormat={
+  const IdeaFormat={
     id:props.data?.id,
     checked:props.data?.checked,
     UserName:props.data?.UserName,
@@ -30,8 +30,8 @@ function IdeaBox(props) {
   };
   async function updateUser()
   {
-    await setUser([HighlightFormat]);
-    navigate("/EditHighlight");
+    await setUser([IdeaFormat]);
+    navigate("/EditIdea");
   }
   const idx = Math.floor(Math.random() * TabColors.length);
 
@@ -58,7 +58,7 @@ function IdeaBox(props) {
           onClick={()=>{
             if(clusterData.length>1){
             setClusterCheckBox(true);
-            setMIdea([HighlightFormat]);
+            setMIdea([IdeaFormat]);
             }
             else alert("No Cluster available to move !!\nPlease create new clusters to move the idea.");
             }} 

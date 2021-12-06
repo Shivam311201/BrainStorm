@@ -1,11 +1,11 @@
-.addHighlight{
+.addIdea{
     text-align: center;
     width:500px;
     padding-left: 30px;
     padding-right: 30px;
     border: #fff solid;
 }
-.addHighlight_Title{
+.addIdea_Title{
     color: #fff;
     font-family: 'Roboto Slab', serif;
     font-size: 48px; 
@@ -50,21 +50,21 @@
     cursor: pointer;
 }
 @media screen and (max-width:580px){
-    .addHighlight{
+    .addIdea{
       width: 400px;   
     }
-    .addHighlight_Title{
+    .addIdea_Title{
       font-size: 39px; 
     }
 }
 @media screen and (max-width:457px){
-    .addHighlight{
+    .addIdea{
       width: 350px;   
       padding-left: 25px;
       padding-right: 25px;
       margin-top: 10px;
     }
-    .addHighlight_Title{
+    .addIdea_Title{
       font-size: 33px; 
     }
     .major_input{
@@ -72,13 +72,13 @@
     }
 }
 @media screen and (max-width:400px){
-    .addHighlight{
+    .addIdea{
       width: 300px;   
       margin-top: 20px;
       padding-left: 15px;
       padding-right: 15px;
     }
-    .addHighlight_Title{
+    .addIdea_Title{
       font-size: 31px; 
     }
     .major_input{

@@ -1,11 +1,11 @@
 import React, {useContext,useEffect,useState} from "react";
 import Navbar from "../Navbar";
-import AddHighlight from "./AddHighlight";
+import AddIdea from "./AddIdea";
 import { useNavigate } from "react-router";
 import { ClusterlessContext } from "../Context/NoClusterDataContext";
 import { ClusterContext } from "../Context/clusterDataContext";
 
-function HighlightFlow(props)
+function IdeaFlow(props)
 {
     const [Data,setData]=useContext(ClusterlessContext);
     const [clusterData, setClusterData]=useContext(ClusterContext);
@@ -30,7 +30,7 @@ function HighlightFlow(props)
        return 1;
      return 0;  
     }
-    function AddIdea(form)
+    function Idea(form)
     {
         if(form.UserName!==""&&form.IdeaDescription!==""){
             if(form.ClusterName===""){
@@ -70,8 +70,8 @@ function HighlightFlow(props)
     return (<div>
         <Navbar group={false}/>
         <div style={{backgroundColor:"#0B0D17",paddingTop:"30px",paddingBottom:"20px",height:winHeight}}>
-        <AddHighlight Data={Data} AddIdea={AddIdea}/>
+        <AddIdea Data={Data} Idea={Idea}/>
         </div>
     </div>)
 }
-export default HighlightFlow;
+export default IdeaFlow;

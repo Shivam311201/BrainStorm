@@ -19,7 +19,7 @@ function IdeaBox(props) {
     ClusterCheckBoxContext
   );
   const navigate = useNavigate();
-  const HighlightFormat = {
+  const IdeaFormat = {
     id: props.data?.id,
     checked: props.data?.checked,
     UserName: props.data?.UserName,
@@ -27,8 +27,8 @@ function IdeaBox(props) {
     IdeaDescription: props.data?.IdeaDescription,
   };
   async function updateUser() {
-    await setUser([HighlightFormat]);
-    navigate("/EditHighlight");
+    await setUser([IdeaFormat]);
+    navigate("/EditIdea");
   }
   const idx = Math.floor(Math.random() * TabColors.length);
   return (
@@ -64,7 +64,7 @@ function IdeaBox(props) {
           className="move"
           onClick={() => {
             setClusterCheckBox(true);
-            setMIdea([HighlightFormat]);
+            setMIdea([IdeaFormat]);
           }}
           icon={faExchangeAlt}
         />

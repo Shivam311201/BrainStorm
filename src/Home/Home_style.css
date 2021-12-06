@@ -170,4 +170,11 @@
         margin-right: 27px !important;
     }    
 }
+@media screen and (max-width:400px){
+    .moveCheckbox{
+        margin-left: 2px;
+        height: 20px;
+        width: 20px;
+    }
+}
 

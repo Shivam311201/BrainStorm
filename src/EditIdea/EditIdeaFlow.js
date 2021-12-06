@@ -1,11 +1,11 @@
 import React,{useContext,useState,useEffect} from "react";
 import Navbar from "../Navbar";
-import EditHighlight from "./EditHighlight";
+import EditIdea from "./EditIdea";
 import { CurrentuserContext } from "../Context/currentUserContext";
 import { ClusterlessContext } from "../Context/NoClusterDataContext";
 import { ClusterContext } from "../Context/clusterDataContext";
 import { useNavigate } from "react-router";
-function EditHighlightFlow()
+function EditIdeaFlow()
 {
   const[user,setUser]=useContext(CurrentuserContext);
   const[Data,setData]=useContext(ClusterlessContext);
@@ -65,8 +65,8 @@ function EditHighlightFlow()
     return (<div>
         <Navbar group={false}/>
         <div className="outerEdit" style={{height:winHeight}}>
-          <EditHighlight user={user} setUser={setUser} updateIdea={updateIdea}/>
+          <EditIdea user={user} setUser={setUser} updateIdea={updateIdea}/>
         </div>
     </div>)
 }
-export default EditHighlightFlow;   
+export default EditIdeaFlow;   
